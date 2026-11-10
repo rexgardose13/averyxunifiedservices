@@ -1,0 +1,647 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CreativeTech Solutions - Creative business and technology solutions for growing businesses.">
+<title>CreativeTech Solutions | Innovative Business Solutions</title>
+
+<style>
+:root {
+  --purple: #713bdb;
+  --pink: #f04f9b;
+  --blue: #2678e8;
+  --dark: #19152c;
+  --light: #f8f7ff;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--dark);
+  background: var(--light);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 15px #00000010;
+}
+
+.navbar {
+  max-width: 1150px;
+  margin: auto;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--purple);
+}
+
+.logo span {
+  color: var(--pink);
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+nav a {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: var(--pink);
+}
+
+.menu-btn {
+  display: none;
+  border: none;
+  background: none;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 590px;
+  padding: 100px 24px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(120deg, #6538d7, #347ee9, #ed56a0);
+  color: white;
+}
+
+.hero-content {
+  max-width: 1150px;
+  width: 100%;
+  margin: auto;
+}
+
+.hero-tag {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid #ffffff80;
+  border-radius: 30px;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: clamp(40px, 7vw, 68px);
+  line-height: 1.1;
+  max-width: 750px;
+  margin-bottom: 25px;
+}
+
+.hero p {
+  max-width: 620px;
+  font-size: 18px;
+  margin-bottom: 32px;
+  color: #ffffffeb;
+}
+
+.btn {
+  display: inline-block;
+  background: white;
+  color: var(--purple);
+  padding: 14px 27px;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: .3s;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px #00000030;
+}
+
+.btn-outline {
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  margin-left: 10px;
+}
+
+section {
+  padding: 85px 24px;
+  scroll-margin-top: 70px;
+}
+
+.container {
+  max-width: 1150px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-title h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.section-title p {
+  color: #777;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-image {
+  min-height: 320px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #a27af5, #f16ba7, #ffbb76);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
+}
+
+.about-text h2 {
+  font-size: 34px;
+  margin-bottom: 18px;
+}
+
+.about-text p {
+  color: #666;
+  margin-bottom: 18px;
+}
+
+.services {
+  background: white;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.service-card {
+  background: #faf9ff;
+  padding: 32px 25px;
+  border-radius: 18px;
+  border: 1px solid #eee9ff;
+  transition: .3s;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px #4d2a9115;
+}
+
+.service-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.service-card h3 {
+  margin-bottom: 12px;
+  color: var(--purple);
+}
+
+.service-card p {
+  color: #777;
+  font-size: 15px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.project-card {
+  border-radius: 18px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 5px 20px #0000000d;
+}
+
+.project-art {
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+  font-size: 65px;
+}
+
+.art-one { background: linear-gradient(135deg,#a78bfa,#f9a8d4); }
+.art-two { background: linear-gradient(135deg,#60a5fa,#67e8f9); }
+.art-three { background: linear-gradient(135deg,#fb923c,#facc15); }
+
+.project-info {
+  padding: 22px;
+}
+
+.project-info p {
+  color: #777;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.cta {
+  text-align: center;
+  background: linear-gradient(120deg, #6538d7, #ed56a0);
+  color: white;
+}
+
+.cta h2 {
+  font-size: 38px;
+  margin-bottom: 15px;
+}
+
+.cta p {
+  margin-bottom: 28px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.contact-info h3 {
+  font-size: 25px;
+  margin-bottom: 18px;
+}
+
+.contact-info p {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.contact-form {
+  display: grid;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font: inherit;
+}
+
+.contact-form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.contact-form button {
+  border: none;
+  background: linear-gradient(100deg,var(--purple),var(--pink));
+  color: white;
+  padding: 15px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+footer {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+footer p {
+  color: #c9c4d6;
+  font-size: 14px;
+}
+
+@media(max-width: 800px) {
+  .menu-btn {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 25px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-grid,
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 520px) {
+  .service-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: 500px;
+    padding: 75px 22px;
+  }
+
+  section {
+    padding: 65px 20px;
+  }
+
+  .section-title h2 {
+    font-size: 29px;
+  }
+
+  .btn-outline {
+    margin: 12px 0 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="navbar">
+    <a href="#home" class="logo">Creative<span>Tech.</span></a>
+
+    <button class="menu-btn" id="menuBtn"
+      aria-label="Toggle navigation" aria-expanded="false">
+      ☰
+    </button>
+
+    <nav id="navMenu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="hero-tag">✨ Innovation Meets Creativity</span>
+    <h1>We Build Ideas Into Digital Reality.</h1>
+    <p>
+      Welcome to CreativeTech Solutions. We help businesses
+      grow through creative design, smart technology and
+      innovative digital solutions.
+    </p>
+    <a href="#services" class="btn">Explore Services →</a>
+    <a href="#contact" class="btn btn-outline">Contact Us</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-image">🚀</div>
+    <div class="about-text">
+      <h2>Who We Are</h2>
+      <p>
+        CreativeTech Solutions is a modern business focused
+        on helping organizations achieve their goals through
+        technology and creativity.
+      </p>
+      <p>
+        We believe every great business deserves a powerful
+        digital presence. Our goal is to make technology
+        simple, effective and accessible.
+      </p>
+      <a href="#contact" class="btn"
+        style="background:var(--purple);color:white;">
+        Work With Us
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>Creative solutions designed to move your business forward.</p>
+    </div>
+
+    <div class="service-grid">
+      <article class="service-card">
+        <div class="service-icon">💻</div>
+        <h3>Web Development</h3>
+        <p>Modern, responsive and professional websites
+        designed for your business.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>Creative Design</h3>
+        <p>Beautiful visual experiences and branding
+        that help your business stand out.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">🌐</div>
+        <h3>IT Solutions</h3>
+        <p>Technology support and practical IT solutions
+        for modern organizations.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">📡</div>
+        <h3>Network Solutions</h3>
+        <p>Network planning, wireless infrastructure
+        and connectivity support.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">📈</div>
+        <h3>Digital Growth</h3>
+        <p>Digital strategies to improve visibility
+        and reach more customers.</p>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">🤝</div>
+        <h3>IT Consulting</h3>
+        <p>Practical guidance to help businesses
+        make smarter technology decisions.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Projects</h2>
+      <p>A showcase of our creative ideas and digital work.</p>
+    </div>
+
+    <div class="projects-grid">
+      <article class="project-card">
+        <div class="project-art art-one">🌟</div>
+        <div class="project-info">
+          <h3>Business Website</h3>
+          <p>A modern website concept for a growing business.</p>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-art art-two">📱</div>
+        <div class="project-info">
+          <h3>Digital Experience</h3>
+          <p>A clean and responsive digital experience.</p>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-art art-three">⚡</div>
+        <div class="project-info">
+          <h3>Network Project</h3>
+          <p>A conceptual network infrastructure solution.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>Ready to Grow Your Business?</h2>
+    <p>Let's turn your next big idea into reality.</p>
+    <a href="#contact" class="btn">Let's Talk Today →</a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-title">
+      <h2>Get In Touch</h2>
+      <p>Have a project in mind? We'd love to hear from you.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Let's Connect!</h3>
+        <p>📧 Email: hello@example.com</p>
+        <p>📍 Location: Your City, Your Country</p>
+        <p>🕒 Business Hours: Monday - Friday</p>
+        <p>
+          Send us an email to discuss your next project
+          or business requirements.
+        </p>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <input type="text" id="name"
+          placeholder="Your Name" required>
+
+        <input type="email" id="email"
+          placeholder="Your Email" required>
+
+        <textarea id="message"
+          placeholder="Your Message" required></textarea>
+
+        <button type="submit">Send Message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <h3>CreativeTech Solutions</h3>
+  <p>Creative ideas. Smart technology. Better business.</p>
+  <p>© <span id="year"></span> CreativeTech Solutions.
+    All rights reserved.</p>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navMenu = document.getElementById("navMenu");
+
+menuBtn.addEventListener("click", () => {
+  const isOpen = navMenu.classList.toggle("active");
+  menuBtn.setAttribute("aria-expanded", isOpen);
+});
+
+document.querySelectorAll("#navMenu a").forEach(link => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("active");
+    menuBtn.setAttribute("aria-expanded", "false");
+  });
+});
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+document.getElementById("contactForm")
+  .addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const businessEmail = "hello@example.com";
+
+    const subject = encodeURIComponent(
+      "Website inquiry from " + name
+    );
+
+    const body = encodeURIComponent(
+      "Name: " + name +
+      "\nEmail: " + email +
+      "\n\nMessage:\n" + message
+    );
+
+    window.location.href =
+      "mailto:" + businessEmail +
+      "?subject=" + subject +
+      "&body=" + body;
+  });
+</script>
+
+</body>
+</html>
